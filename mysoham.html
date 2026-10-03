@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Soham — Don't Blush Challenge 💌</title>
+<style>
+:root{
+  --bg:#09070b; --card:#151019; --pink:#ff5c9a; --hot:#ff2f73;
+  --soft:#ffd3e3; --text:#fff5f8; --muted:#bbaab2; --line:#2a2029;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:
+ radial-gradient(circle at 15% 10%,#4a102d55,transparent 28%),
+ radial-gradient(circle at 85% 30%,#71153c33,transparent 30%),var(--bg);
+ color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+ overflow-x:hidden;
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;
+ background-image:radial-gradient(#fff 1px,transparent 1px);background-size:38px 38px;
+}
+.wrap{max-width:980px;margin:auto;padding:24px}
+.hero{min-height:88vh;display:grid;place-items:center;text-align:center;position:relative}
+.pill{display:inline-block;border:1px solid #ff5c9a66;background:#ff5c9a12;padding:8px 14px;border-radius:999px;color:var(--soft);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(44px,9vw,92px);line-height:.92;margin:20px 0 16px;letter-spacing:-4px}
+.gradient{background:linear-gradient(90deg,#fff,#ffb3cf,#ff4e8d);-webkit-background-clip:text;color:transparent}
+.sub{max-width:650px;margin:auto;color:var(--muted);font-size:18px;line-height:1.7}
+button{
+ border:0;border-radius:999px;padding:14px 22px;font-weight:800;cursor:pointer;
+ color:#180812;background:linear-gradient(135deg,#ffd2e2,#ff5c9a);
+ box-shadow:0 8px 30px #ff2f7340;transition:.2s; margin:7px;
+}
+button:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 35px #ff2f7355}
+.secondary{background:#19131b;color:#ffd7e5;border:1px solid #ff5c9a44;box-shadow:none}
+section{padding:72px 0}
+.card{
+ background:#ffffff06;border:1px solid var(--line);border-radius:28px;padding:28px;
+ box-shadow:0 20px 70px #0008;backdrop-filter:blur(8px);
+}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.wrap{padding:17px}}
+h2{font-size:34px;margin:0 0 12px}.eyebrow{color:#ff78aa;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:800}
+.lore{font-size:17px;line-height:1.75;color:#dfcdd5}
+.lore b{color:#fff}
+.game{text-align:center}
+.progress{height:12px;background:#211922;border-radius:20px;overflow:hidden;margin:22px 0}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#ff3e80,#ffd0df);transition:.6s}
+.question{font-size:24px;font-weight:800;margin:20px auto;max-width:700px}
+.answers{display:flex;flex-wrap:wrap;justify-content:center}
+.result{min-height:45px;color:#ffd7e5;font-weight:700}
+.blush{
+ font-size:72px;font-weight:900;
+ background:linear-gradient(180deg,#fff,#ff70a5);-webkit-background-clip:text;color:transparent;
+}
+.hidden{display:none}
+.letter{font-size:19px;line-height:1.9;color:#f2dfe6}
+.reveal{
+ margin-top:20px;padding:20px;border-radius:20px;background:#ff5c9a0d;border:1px solid #ff5c9a33;
+}
+.floating{position:fixed;pointer-events:none;animation:float 1.8s ease-out forwards;font-size:24px;z-index:5}
+@keyframes float{to{transform:translateY(-160px) rotate(20deg);opacity:0}}
+.heart{font-size:70px;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{transform:scale(1.15)}}
+footer{text-align:center;padding:40px 0 70px;color:#897781}
+input{
+width:min(500px,100%);padding:16px;border-radius:15px;border:1px solid #ff5c9a44;
+background:#100c11;color:white;outline:none;font-size:16px;
+}
+.small{font-size:13px;color:#927f89}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div>
+    <div class="pill">Boyfriend Day • classified file 💌</div>
+    <h1>Hey <span class="gradient">Soham.</span><br>Try not to blush.</h1>
+    <p class="sub">This isn't a normal “Happy Boyfriend's Day” page. It's a tiny digital trap made specifically for one person who somehow became a very important part of my life.</p>
+    <button onclick="scrollToId('challenge')">ENTER THE BLUSH TEST →</button>
+    <button class="secondary" onclick="tinyChaos()">Don't click this</button>
+    <div class="heart">♥</div>
+  </div>
+</header>
+
+<section id="challenge">
+  <div class="card game">
+    <div class="eyebrow">Level 01 • Boyfriend knowledge test</div>
+    <h2>How well do you know us?</h2>
+    <p class="small">Wrong answers will be judged dramatically. Correct answers may increase your ego.</p>
+    <div class="progress"><div id="bar" class="bar"></div></div>
+    <div id="question" class="question"></div>
+    <div id="answers" class="answers"></div>
+    <div id="result" class="result"></div>
+    <div id="score" class="small"></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Level 02 • Our little lore</div>
+  <h2>The things I don't always say out loud.</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🪑 The sitting-beside-you thing</h3>
+      <p class="lore">Sometimes I don't need a big conversation. I just like <b>being beside you</b>. Even if I'm quiet, observing everything and pretending I have nothing to say.</p>
+    </div>
+    <div class="card">
+      <h3>🤦‍♀️ The silly mistakes</h3>
+      <p class="lore">I may be quiet. I may make silly mistakes. I may just sit beside you and observe everything without saying much. But honestly… those tiny ordinary moments with you became some of my favourite memories.</p>
+    </div>
+    <div class="card">
+      <h3>🍗 The biryani clause</h3>
+      <p class="lore">There is apparently a very serious relationship requirement: <b>good food.</b> Especially biryani. Romance is important. But so is feeding the girl.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="eyebrow">Level 03 • Pick your fate</div>
+    <h2>What kind of boyfriend are you?</h2>
+    <div class="answers">
+      <button onclick="fate('soft')">The secretly soft one 🫠</button>
+      <button onclick="fate('tease')">The professional teaser 😏</button>
+      <button onclick="fate('food')">The “have you eaten?” boyfriend 🍜</button>
+      <button onclick="fate('all')">Unfortunately… all of them</button>
+    </div>
+    <div id="fateResult" class="reveal hidden"></div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="eyebrow">Level 04 • Blush generator</div>
+    <h2>One compliment. No escaping.</h2>
+    <p class="lore">Press the button. The website will randomly expose how fond she is of you.</p>
+    <button onclick="compliment()">Make Soham blush 💗</button>
+    <div id="compliment" class="reveal hidden"></div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="eyebrow">Level 05 • For your overthinking mind</div>
+    <h2>Moon Prince, pause here for a minute. 🌙</h2>
+    <div class="letter">
+      If your mind is running a hundred different conversations right now,
+      you don't have to solve all of them tonight.<br><br>
+      Take a breath. Unclench your jaw. Let your shoulders relax.
+      You don't have to figure everything out at once.<br><br>
+      And if you're wondering whether you're doing enough, whether someone is upset,
+      whether something will go wrong, or whether you should have said something differently—
+      <b>please be a little kinder to yourself.</b><br><br>
+      You are allowed to rest without having every answer.
+      You are allowed to have a difficult day without fixing it immediately.
+      And you definitely don't have to carry every thought alone.<br><br>
+      I know I don't always say everything I feel perfectly.
+      Sometimes I'm quiet, sometimes I just sit beside you, sometimes I tease you,
+      and sometimes my feelings get stuck somewhere between my heart and my words.
+      But one thing doesn't get stuck:<br><br>
+      <b>You matter to me. A lot.</b><br><br>
+      So for tonight, forget the noise for a little while.
+      Eat something, drink some water, breathe slowly, and let your brain rest.
+      Tomorrow can deal with tomorrow.<br><br>
+      <b>For now, just remember that you are loved, you are cared for,
+      and you don't have to be perfect to be precious to me.</b><br><br>
+      Now close your eyes, Moon Prince. 🌙
+      <b>Let the world wait. You deserve a little peace.</b> ♥
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card" style="text-align:center">
+    <div class="eyebrow">Final boss</div>
+    <h2>One last question.</h2>
+    <p class="question">Soham, will you continue putting up with this girl?</p>
+    <button onclick="yes()">YES, obviously 💗</button>
+    <button class="secondary" id="no" onmouseover="runAway()" onclick="runAway()">No 😌</button>
+    <div id="final" class="reveal hidden"></div>
+  </div>
+</section>
+
+<footer>
+  Made with suspicious amounts of affection.<br>
+  <span>Happy Boyfriend's Day, Soham. ♥</span>
+</footer>
+</div>
+
+<script>
+const questions=[
+ {q:"What does she secretly enjoy most when you're together?",a:["Showing off","Sitting beside you & observing","Falling asleep","Arguing"],c:1},
+ {q:"What can make romance approximately 47% better?",a:["Biryani","A spreadsheet","Silence forever","Cold coffee"],c:0},
+ {q:"When she is quiet, it most likely means…",a:["She hates you","Her brain is buffering","She has nothing to feel","She's plotting"],c:1},
+ {q:"What is one thing she may do while sitting beside you?",a:["Make silly mistakes","Become a professor","Run away","Start a podcast"],c:0}
+];
+let qi=0, points=0;
+function renderQ(){
+ const x=questions[qi];
+ question.textContent=x.q; answers.innerHTML="";
+ x.a.forEach((v,i)=>{
+  const b=document.createElement("button");b.textContent=v;
+  b.onclick=()=>answer(i);answers.appendChild(b);
+ });
+ bar.style.width=(qi/questions.length*100)+"%";
+ score.textContent=`Score: ${points}/${qi}`;
+}
+function answer(i){
+ const x=questions[qi];
+ if(i===x.c){points++; result.textContent="Correct. Look at you knowing your girl. 👀"; sparkle("💗");}
+ else result.textContent="Wrong. I expected better from you, boyfriend. 😭";
+ qi++;
+ if(qi<questions.length)setTimeout(renderQ,650);
+ else{
+  bar.style.width="100%";question.textContent="Test complete.";
+  answers.innerHTML="";
+  result.textContent=points===questions.length?"Okay fine. You pass. Now stop smiling. 😭💗":"You survived. We'll call that character development.";
+  score.textContent=`Final score: ${points}/${questions.length} • Blush level: ${Math.min(100,45+points*15)}%`;
+ }
+}
+function compliment(){
+ const arr=[
+ "You have this annoying little talent of making ordinary moments feel important.",
+ "I don't always say it, but I notice the little things you do. More than you think.",
+ "If sitting beside you and silently observing counts as quality time… I'm ridiculously good at loving you.",
+ "You're officially one of my favourite people to annoy, tease, miss, and care about.",
+ "Congratulations. You have been promoted from “person I know” to “person my brain randomly thinks about.”"
+ ];
+ const t=arr[Math.floor(Math.random()*arr.length)];
+ const el=document.getElementById("compliment");el.textContent=t;el.classList.remove("hidden");sparkle("💗");
+}
+function fate(x){
+ const m={
+ soft:"Caught you. The secretly soft boyfriend has been identified. Please maintain your dignity. 🫠",
+ tease:"Ah yes, professional teaser. Your girlfriend has filed several complaints and zero resignations. 😭",
+ food:"Important boyfriend skill. Keep this certification active. 🍗",
+ all:"Oh. So basically you're the full package. Unfortunately for you, she's attached now. 💗"
+ };
+ fateResult.textContent=m[x];fateResult.classList.remove("hidden");sparkle("♥");
+}
+function yes(){
+ final.innerHTML="Correct answer. Your reward is keeping the girl who made this ridiculously specific website for you. 💗<br><br><b>Happy Boyfriend's Day, my Moon Prince. I love you.</b>";
+ final.classList.remove("hidden");for(let i=0;i<14;i++)setTimeout(()=>sparkle("💗"),i*90);
+}
+function runAway(){
+ const n=document.getElementById("no");
+ n.style.position="fixed";
+ n.style.left=(Math.random()*75+10)+"%";
+ n.style.top=(Math.random()*75+10)+"%";
+}
+function tinyChaos(){
+ for(let i=0;i<8;i++)setTimeout(()=>sparkle(["💗","😏","🍗","🫠"][i%4]),i*80);
+ alert("You clicked it. Of course you did. 😭\n\nMessage unlocked: I like you more than I know how to explain.");
+}
+function sparkle(symbol){
+ const e=document.createElement("div");e.className="floating";e.textContent=symbol;
+ e.style.left=(Math.random()*90+5)+"vw";e.style.top=(Math.random()*75+15)+"vh";
+ document.body.appendChild(e);setTimeout(()=>e.remove(),1800);
+}
+function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
+renderQ();
+</script>
+</body>
+</html>
